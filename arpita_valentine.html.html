@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Arpita 💙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap');
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#cfe9ff;
+  font-family:'Poppins',sans-serif;
+}
+
+.card{
+  width:90%;
+  max-width:420px;
+  background:rgba(255,255,255,0.5);
+  backdrop-filter:blur(18px);
+  border-radius:30px;
+  padding:35px;
+  text-align:center;
+  box-shadow:0 25px 50px rgba(0,0,0,0.2);
+}
+
+h1{
+  font-family:'Pacifico',cursive;
+  color:#4d96ff;
+}
+
+p{color:#333; line-height:1.6;}
+
+button{
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  margin:8px;
+  transition:0.25s;
+}
+
+.yes{background:#4d96ff;color:white;}
+.no{background:#ff7b7b;color:white;}
+
+button:hover{transform:scale(1.1);}
+
+.hidden{display:none;}
+
+.heart{
+  font-size:40px;
+  animation:beat 1.4s infinite;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.3);}
+}
+
+.dance{
+  margin-top:20px;
+}
+
+.dance img{
+  width:90px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- background music -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/1H8IW7Wt3g8?autoplay=1&mute=1&loop=1&playlist=1H8IW7Wt3g8"
+allow="autoplay">
+</iframe>
+
+<div class="card">
+
+<!-- START -->
+<div id="start">
+  <div class="heart">💙</div>
+  <h1>Hi Arpita</h1>
+  <p>I made something soft, cute and very honest 🤍</p>
+  <button class="yes" onclick="goQuotes()">Start ✨</button>
+</div>
+
+<!-- QUOTES -->
+<div id="quotes" class="hidden">
+  <h1>Just a thought…</h1>
+  <p id="quoteText"></p>
+  <button class="yes" onclick="nextQuote()">Next 💫</button>
+</div>
+
+<!-- ASK -->
+<div id="ask" class="hidden">
+  <p>So here I am…</p>
+  <h1>Will you be my Valentine? 🌸</h1>
+  <button class="yes" onclick="yesFinal()">Yes 💙</button>
+  <button class="no" onclick="noClick()">No 💔</button>
+</div>
+
+<!-- SAD -->
+<div id="sad" class="hidden">
+  <h1>😞💔</h1>
+  <p>You broke me a little…</p>
+  <p>Are you sure? 🥹🌻💔</p>
+  <button class="yes" onclick="startOver()">Start Over 🔄</button>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="hidden">
+  <h1>LET’S GO FOR A DATE!!! 🥳💙</h1>
+  <p>I knew it 😭✨</p>
+
+  <div class="dance">
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+  </div>
+
+  <p style="margin-top:15px;">Already excited 💃🕺</p>
+</div>
+
+</div>
+
+<script>
+const quotes = [
+  "You have a way of making things feel lighter.",
+  "I smile without realizing… and it’s usually you.",
+  "Some people feel like comfort.",
+  "You stayed in my thoughts longer than expected."
+];
+
+let i = 0;
+
+function goQuotes(){
+  start.classList.add("hidden");
+  quotesDiv.classList.remove("hidden");
+  quoteText.innerText = quotes[i];
+}
+
+function nextQuote(){
+  i++;
+  if(i < quotes.length){
+    quoteText.innerText = quotes[i];
+  } else {
+    quotesDiv.classList.add("hidden");
+    ask.classList.remove("hidden");
+  }
+}
+
+function noClick(){
+  ask.classList.add("hidden");
+  sad.classList.remove("hidden");
+}
+
+function startOver(){
+  sad.classList.add("hidden");
+  ask.classList.remove("hidden");
+}
+
+function yesFinal(){
+  ask.classList.add("hidden");
+  final.classList.remove("hidden");
+}
+
+const start = document.getElementById("start");
+const quotesDiv = document.getElementById("quotes");
+const quoteText = document.getElementById("quoteText");
+const ask = document.getElementById("ask");
+const sad = document.getElementById("sad");
+const final = document.getElementById("final");
+</script>
+
+</body>
+</html>
